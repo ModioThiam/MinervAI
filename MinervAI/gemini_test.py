@@ -1,5 +1,3 @@
-api_key = 'AIzaSyAuGOE3GkPpRohYpU6USPR6EW_0kHDdsqM'
-
 import base64
 import os
 from google import genai
@@ -7,20 +5,13 @@ from google.genai import types
 from dotenv import load_dotenv
 load_dotenv()
 
-def generate():
+def generate(userInput):
     client = genai.Client(
         api_key=os.getenv("GEMINI_API_KEY")
     )
 
     model = "gemini-2.0-flash"
-    contents = [
-        types.Content(
-            role="user",
-            parts=[
-                types.Part.from_text(text="""INSERT TEXT"""),
-            ],
-        ),
-    ]
+
     tools = [
         types.Tool(code_execution=types.ToolCodeExecution),
     ]
@@ -42,16 +33,16 @@ def generate():
         ],
     )
 
-    history = []
-
-    #user_input = input("Learning content: ")
-    user_input = input()
-
     response = client.models.generate_content(
-        model = model,
-        contents= "Generate a summary of this module with key points: " + user_input
+        model=model,
+        config=generate_content_config,
+        contents=["Generate a summary of this module with key points. Return your response as HTML code. Only return the summary, nothing else. \n" + userInput]
     )
-    print(response.text)
+    response = response.text
+    response = response.strip().removeprefix("```html").removesuffix("```")
+    print(response)
+
+
     '''
     for chunk in client.models.generate_content_stream(
         model=model,
@@ -67,7 +58,7 @@ def generate():
         if chunk.candidates[0].content.parts[0].code_execution_result:
             print(chunk.candidates[0].content.parts[0].code_execution_result)
     '''
-if __name__ == "__main__":
-    generate()
+
+    return response
 
 
