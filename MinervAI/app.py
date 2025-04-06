@@ -41,8 +41,8 @@ def quizzes():
     if request.method == "GET":
         userInputData = session.get('userInputData')
         gemini_quizzes_response = generate_quiz(userInputData)
-        print("Quiz Response : \n", gemini_quizzes_response)
-        cleaned_response = gemini_quizzes_response.strip()
+        cleaned_response = gemini_quizzes_response.strip().removeprefix("json")
+        print("Quiz Response : \n", cleaned_response)
         responseList = ast.literal_eval(cleaned_response) # converts string list to list
         questionData = [d[0] for d in responseList]
         session['responseList'] = responseList # stores question data

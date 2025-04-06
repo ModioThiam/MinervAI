@@ -36,7 +36,7 @@ def generate_summary(userInput):
     response = client.models.generate_content(
         model=model,
         config=generate_content_config,
-        contents=["Generate a summary of this module with key points. Return your response as HTML code. Only return the summary, nothing else. \n" + userInput]
+        contents=["Generate a summary of this module with key points, then generate an 'Explain it like I'm 5' summary as well at the bottom. Return your response as HTML code. Only return the summary, nothing else. \n" + userInput]
     )
     response = response.text
     response = response.strip().removeprefix("```html").removesuffix("```")
