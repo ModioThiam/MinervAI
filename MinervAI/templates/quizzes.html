@@ -8,16 +8,33 @@
       rel="stylesheet"
       href="{{ url_for('static', filename='styles.css')}}"
     />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="{{ url_for('static', filename='minervaiLogo.png')}}"
+    />
   </head>
   <body>
+    <div class="home"><a href="/">Home</a></div>
     <header>
       <h1>MinervAI</h1>
-      <p>Your AI Study Assistant</p>
     </header>
+
+    <div class="description-wrapper">
+      <p class="description">Your AI Study Assistant :&#41</p>
+    </div>
 
     <section class="quizzes">
       <h2>Here is a summary of your module...</h2>
-      <article>{{ userInputData | safe }}</article>
+      <article>{{ gemini_quizzes_response | safe }}</article>
     </section>
   </body>
+  <footer>
+    <div class="footer-left">
+      <a href="/about">About</a>
+    </div>
+    <div class="footer-right">
+      &copy; 2025 MinervAI
+    </div>
+  </footer>
 </html>
