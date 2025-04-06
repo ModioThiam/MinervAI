@@ -39,8 +39,10 @@
       <h2>Here is a summary of your module...</h2>
       <article>{{ gemini_response | safe }}</article>
     </section>
-    <a href="/flashcards"><button>Flashcards</button></a>
-    <a href="/quizzes"><button>Quizzes</button></a>
+    <div class="button-row">
+        <a href="/flashcards"><button>Flashcards</button></a>
+        <a href="/quizzes"><button>Quizzes</button></a>
+    </div>
     {% endif %}
   </body>
   <footer>

@@ -58,9 +58,9 @@ section {
 }
 
 form {
-  display: flex;
+  /* display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: center; */
   width: 80%;
   height: 200px;
   padding: 10px;
@@ -96,7 +96,7 @@ button {
   color: #191970;
   */
 
-  background-image: linear-gradient(to right, #1640a1 0%, #90b5ff  61%, #567cd3  100%);
+  background-image: linear-gradient(to right, #0f2e77 0%, #90b5ff  71%, #567cd3  100%);
   margin: 10px;
   padding: 5px 15px;
   text-align: center;
@@ -140,8 +140,17 @@ h6 {
 a {
   text-decoration: none;
   color: white;
+
 }
 
+.button-row {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+  }
+.button-row button, a {
+    width: 100%;
+  }
 
 article {
   font-family: "Roboto", sans-serif;
@@ -150,6 +159,7 @@ article {
   padding: 0% 4% 4% 4%;
   border-radius: 5px;
   line-height: 1.6;
+  height: auto;
 }
 .description-wrapper {
   text-align: center;
@@ -288,4 +298,20 @@ footer {
 
 p {
   color: white;
+}
+
+.quizzes {
+  font-family: "Roboto", sans-serif;
+  color: white;
+  
+}
+
+.quiz-container{
+  overflow: auto;
+  min-height: 300px;
+  padding-bottom: 10px;
+}
+
+.question, .answers{
+  display:block,
 }
