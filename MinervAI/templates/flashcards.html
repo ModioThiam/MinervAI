@@ -8,16 +8,42 @@
       rel="stylesheet"
       href="{{ url_for('static', filename='styles.css')}}"
     />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="{{ url_for('static', filename='minervaiLogo.png')}}"
+    />
   </head>
+  <div class="home"><a href="/">Home</a></div>
   <body>
+    <!-- <a class="home" href="/">Home</a> -->
     <header>
       <h1>MinervAI</h1>
-      <p>Your AI Study Assistant</p>
     </header>
+    <div class="description-wrapper">
+      <p class="description">Your AI Study Assistant :&#41</p>
+    </div>
 
     <section class="flashcards">
-      <h2>Here is a summary of your module...</h2>
-      <article>{{ gemini_flashcards_response | safe }}</article>
+      <h2>Here are some flashcards to study...</h2>
+      <article class="card-container">
+        {% for question, answer in gemini_flashcards_response.items() %}
+        <div class="container">
+          <div class="card">
+            <h3 class="cardQuestion">{{ question }}</h3>
+            <p class="cardAnswer">{{ answer }}</p>
+          </div>
+        </div>
+        {% endfor %}
+      </article>
     </section>
   </body>
+  <footer>
+    <div class="footer-left">
+      <a href="/about">About</a>
+    </div>
+    <div class="footer-right">
+      &copy; 2025 MinervAI
+    </div>
+  </footer>
 </html>
