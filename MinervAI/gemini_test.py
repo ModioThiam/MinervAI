@@ -116,7 +116,7 @@ def generate_quiz(userInput):
     response = client.models.generate_content(
         model=model,
         config=generate_content_config,
-        contents=["Generate potential quiz questions using the information from the input. Return your response as a list of tuples. Each tuple will have a dictionary of one of the questions and list of potential answers in this format: {'question':[potential answers],...}. The other element in the tuple should be the index of the correct answer in the list of potential answers. Only return the list of tuples, no other text.\n input:\n" + userInput]
+        contents=["Generate potential quiz questions using the information from the input. Return your response as a list of tuples. Each tuple will have a dictionary of one of the questions and list of potential answers in this format: {'*question goes here*':[possible answers],...}. The second element in the tuple should be the index of the correct answer in the list of potential answers. Only return the list of tuples, no other text.\n input:\n" + userInput]
     )
     response = response.text
     response = response.strip().removeprefix("```").removesuffix("```")

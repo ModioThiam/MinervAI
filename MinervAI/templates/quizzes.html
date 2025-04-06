@@ -23,10 +23,41 @@
     <div class="description-wrapper">
       <p class="description">Your AI Study Assistant :&#41</p>
     </div>
-
+    <div><h2>Here is a quiz about your module...</h2></div>
     <section class="quizzes">
-      <h2>Here is a summary of your module...</h2>
-      <article>{{ gemini_quizzes_response | safe }}</article>
+      
+      
+        
+        <div class="quiz-container">
+        <form method="POST" action="/quizzes">
+      
+          {% for question, answers in gemini_quizzes_response.items() %}
+          {% set question_index = loop.index %}
+          <div class="question">
+            <p>{{ question }}</p>
+        
+            <div class="answers">
+              {% for answer in answers %}
+              {% set answer_index = loop.index %}
+                <input 
+                  type="radio" 
+                  name="{{ question_index - 1}}"
+                  value="{{ answer_index - 1}}"
+                  
+                  id="answer{{ question }}_{{ answer }}"
+                >
+                
+                <label for="answer{{ question }}_{{ answer }}">
+                  {{ answer }}
+                </label><br>
+              {% endfor %} 
+             
+            </div>
+          </div>
+        {% endfor %}
+        <button class="submit-quiz" type="submit" name="UserAnswers">Submit Quiz</button>
+        </form>
+    </div>
     </section>
   </body>
   <footer>
