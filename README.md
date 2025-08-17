@@ -37,4 +37,4 @@ MinervAI/
 
 # ![MinervAI Screenshot](miverai_tech.png)
 
-# ![Watch Demo Video](https://www.youtube.com/watch?v=xgOKAFDLD-Q)
+# [Watch Demo Video](https://www.youtube.com/watch?v=xgOKAFDLD-Q)
