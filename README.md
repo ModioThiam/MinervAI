@@ -34,3 +34,7 @@ MinervAI/
 - Python (Flask)
 - HTML, CSS, JavaScript
 - AI integration (Gemini API)
+
+# ![MinervAI Screenshot](miverai_tech.jpg)
+
+# ![Watch Demo Video](https://www.youtube.com/watch?v=xgOKAFDLD-Q)
