@@ -35,6 +35,6 @@ MinervAI/
 - HTML, CSS, JavaScript
 - AI integration (Gemini API)
 
-# ![MinervAI Screenshot](miverai_tech.jpg)
+# ![MinervAI Screenshot](miverai_tech.png)
 
 # ![Watch Demo Video](https://www.youtube.com/watch?v=xgOKAFDLD-Q)
