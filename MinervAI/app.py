@@ -1,5 +1,6 @@
 from flask import Flask, render_template, json, redirect, request, session
-from gemini_test import generate_summary, generate_flashcards, generate_quiz
+# from gemini_test import generate_summary, generate_flashcards, generate_quiz
+from gemini_minervai import generate_summary, generate_flashcards, generate_quiz
 import os
 import json
 import ast
